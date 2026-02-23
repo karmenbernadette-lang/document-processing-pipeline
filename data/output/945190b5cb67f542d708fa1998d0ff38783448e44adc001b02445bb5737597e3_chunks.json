@@ -1,0 +1,22 @@
+{
+  "doc_id": "945190b5cb67f542d708fa1998d0ff38783448e44adc001b02445bb5737597e3",
+  "filename": "Karmen.pdf",
+  "filepath": "/Users/karmenelvis/document-processing-pipeline/data/input/Karmen.pdf",
+  "mime_type": "application/pdf",
+  "metadata": {
+    "title": "Karmen.pdf",
+    "author": "Karmen Bernadette Elvis",
+    "created_date": "D:20260223020949+00'00'",
+    "page_count": 1
+  },
+  "chunk_size_tokens": 200,
+  "overlap_tokens": 50,
+  "num_chunks": 1,
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "chunk_text": "hi karmen elvis",
+      "token_count": 3
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+MSA 8700 
+Karmen Elvis, Tyra Evans 
+ 
+Project Definition 
+This project implements Variation C: Scientific/Business Discovery Assistant, specifically 
+designed for the property and casualty (P&C) insurance industry. The system serves as an 
+actuarial intelligence platform that enables discovery of reserve trends, emerging risks, and 
+competitive insights from publicly available insurance carrier filings and external risk data 
+sources. 
+Data Sources  
+Primary 
+The main data sources consist of SEC 10-K (annual) and 10-Q (quarterly) filings from the top 15 
+property and casualty insurers from 2020 to 2024. These documents are sourced directly from 
+the SEC EDGAR API, which provides free, public access to all corporate filings. 
+From these top 15 companies, there would be approximately 60-75 documents per year across 
+five years, totaling 300-375 filings. This represents comprehensive coverage of major market 
+participants, including leading national carriers, regional specialists, and mutual insurers. 
+Secondary 
+While external data sources such as catastrophe databases and economic indicators were 
+considered, format and accessibility constraints make their incorporation challenging. Thus, this 
+initial implementation focuses exclusively on SEC filings to maintain a purely document-centric 
+approach and ensure feasibility within project constraints. 
+Time Span Rationale 
+The 2020–2024 period was specifically selected because it captures several significant critical 
+events that impact actuarial analysis, some of  which include the COVID-19 pandemic's impact 
+on claims patterns and business interruption coverage, the emergence of severe social inflation 
+in liability lines, unprecedented catastrophic loss events including the 2021 Winter Storm Uri 
+
+MSA 8700 
+Karmen Elvis, Tyra Evans 
+ 
+and 2023 Maui wildfires, and the dramatic shift from a prolonged low interest rate environment 
+to rapid rate increases beginning in 2022. This timeframe provides sufficient historical depth for 
+pattern recognition while maintaining relevance to current market conditions. 
+Appropriateness for Chosen Variation 
+●​ Standardized Structure: 10-K and 10-Q filings follow consistent formats mandated by 
+SEC regulations, including standardized reserve disclosures (Schedule P), Management 
+Discussion and Analysis (MD&A) sections, and financial statements. This consistency 
+enables reliable pattern detection and cross-carrier comparison. 
+●​ Dual Data Types: Filings contain both highly structured data (XBRL-tagged financial 
+statements) and unstructured narrative content (MD&A sections explaining 
+management's interpretation of results, risk factors, and forward-looking statements). 
+This combination supports both quantitative analysis and qualitative interpretation. 
+●​ Temporal Basis: Quarterly and annual filing cadence creates a natural time-series 
+structure, enabling the system to track how reserve positions evolve, identify emerging 
+trends before they fully materialize, and analyze the lag between initial reserve estimates 
+and ultimate claim settlements. 
+●​ Sufficient Volume for Pattern Detection: With 15 carriers reporting quarterly over five 
+years, the corpus provides enough data points to identify meaningful patterns while 
+remaining manageable for comprehensive analysis. 
+Constraints and Feasibility 
+●​ Access: All SEC filings are publicly available through the EDGAR API at no cost, with no 
+authentication required. The API supports bulk downloads and provides both HTML and 
+XBRL formats, and with the choice to not include the secondary sources, licensing 
+barriers and access restrictions are eliminated. 
+●​ Preprocessing Requirements: XBRL data can be parsed using standard libraries (such 
+as python-xbrl) to extract structured financial metrics. Narrative sections can be handled 
+through established NLP preprocessing using libraries such as BeautifulSoup or SpaCy. 
+Schedule P data may require specialized parsing logic to handle its tabular format. 
+
+MSA 8700 
+Karmen Elvis, Tyra Evans 
+ 
+●​ No Licensing Issues: As stated previously, all SEC filings are in the public domain with 
+no copyright or licensing restrictions. 
+User Persona and Use Cases 
+Role and Professional Context 
+Sarah Chen is a Senior Reserving Actuary with 5–7 years of experience working at a mid-sized 
+property and casualty insurance company. She is responsible for conducting quarterly reserve 
+reviews across multiple lines of business, including commercial auto, general liability, workers' 
+compensation, and homeowners insurance. Sarah reports directly to the Chief Actuary and 
+regularly presents her findings to the CFO and board of directors. She collaborates closely with 
+claims, underwriting, and finance departments. 
+Primary Goals 
+●​ Industry Awareness: Continuously monitor industry reserve trends and emerging risks 
+that could impact her company's reserve adequacy 
+●​ Competitive Benchmarking: Compare her company's reserve positions and 
+methodologies against their peers to identify potential gaps or opportunities 
+●​ Early Warning Detection: Identify signals of potential reserve inadequacy before they 
+manifest in financial statements, allowing proactive adjustments 
+●​ Executive Communication: Support quarterly reporting with peer analysis and industry 
+context that strengthens her reserve recommendations 
+●​ Defensible Recommendations: Defend reserve selections to senior management with 
+data-driven evidence from across the industry 
+Decision Environment and Constraints 
+Sarah deals with significant time pressure during quarterly reserve review cycles that demands 
+rapid yet in depth analysis. She must synthesize information from 15+ carrier filings efficiently, 
+completing peer reviews of reserve studies within 2–3 weeks while maintaining her regular 
+
+MSA 8700 
+Karmen Elvis, Tyra Evans 
+ 
+reserving responsibilities. Her analysis must balance technical actuarial understanding with 
+clear communication, as board members need to understand both the quantitative and 
+qualitative context of reserve recommendations. Additionally, Sarah faces increased pressure to 
+identify risks proactively. Stakeholders expect her to spot emerging trends before they fully 
+impact financial results, requiring constant pattern recognition across the industry. 
+Pain Points  
+●​ Time-Consuming Manual Research: Currently, reviewing dozens of 10-K and 10-Q 
+filings manually consumes several weeks of Sarah's quarterly cycle. She must read 
+through lengthy documents, extract relevant sections, compile notes, and synthesize 
+findings which leaves little time for strategic thinking. 
+●​ Information Overload: The volume of emerging risks—from climate change impacts to 
+evolving liability exposures to shifting economic conditions is difficult for Sarah to track. 
+She relies on industry conferences and trade publications, but this reactive approach 
+often means learning about trends after they've already had decent impact. 
+●​ Competitive Intelligence Gaps: Sarah lacks insight into how peer carriers are 
+responding to similar risks in real time. By the time annual reports are published and 
+analyzed, competitive advantages or best practices may have already shifted. 
+●​ Reactive Rather Than Proactive Posture: Without systematic monitoring tools, Sarah 
+often learns about significant industry trends after they've fully emerged, limiting her 
+ability to position her company advantageously or adjust reserves before deficiencies 
+develop. 
+Key Use Cases 
+Use Case 1: Quarterly Competitive Reserve Analysis 
+●​ Query: "Summarize reserve changes for commercial auto across top 10 carriers in Q3 
+2024. What reasons did they cite?" 
+●​ Workflow:  
+○​ Pull latest 10-Qs → Extract reserve sections → Identify key themes → Generate 
+comparison table 
+
+MSA 8700 
+Karmen Elvis, Tyra Evans 
+ 
+●​ Output: Structured summary with carrier specific insights and common patterns 
+●​ Goes beyond simple search: Synthesizes across multiple documents, identifies 
+patterns 
+Use Case 2: Deep-Dive Peer Analysis 
+●​ Query: "How are carriers addressing social inflation in liability lines? Show me specific 
+language and quantified impacts." 
+●​ Workflow: Search 10-K MD&A sections → Extract relevant passages → Quantify 
+impacts where stated → Compare approaches 
+●​ Output: Detailed report with direct quotes and financial impacts by carrier 
+●​ Goes beyond simple search: Extracts and synthesizes domain-specific concepts 
+across sources 
+Use Case 3: Historical Pattern Analysis 
+●​ Query: "Last time construction defect claims spiked, how did carriers respond in their 
+reserves over the following 12 months?" 
+●​ Workflow: Identify historical event → Track reserve movements temporally → Build 
+pattern profile 
+●​ Output: Timeline visualization with narrative explanation 
+●​ Goes beyond simple search: Temporal reasoning, causal inference, pattern matching

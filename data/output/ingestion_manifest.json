@@ -1,0 +1,24 @@
+[
+  {
+    "doc_id": "945190b5cb67f542d708fa1998d0ff38783448e44adc001b02445bb5737597e3",
+    "filename": "Karmen.pdf",
+    "filepath": "/Users/karmenelvis/document-processing-pipeline/data/input/Karmen.pdf",
+    "file_ext": ".pdf",
+    "mime_type": "application/pdf",
+    "file_size_bytes": 15686,
+    "modified_time_utc": "2026-02-23T02:13:14+00:00",
+    "ingested_at_utc": "2026-02-23T02:22:38+00:00",
+    "sha256": "d2e89bab769050653222428375927d3ee79ca85463ea08d10df90534e365f9b3"
+  },
+  {
+    "doc_id": "657816f51d0a0f101220efb9828cfc335fd327df3eda11fde14e17fbe9952235",
+    "filename": "test.txt",
+    "filepath": "/Users/karmenelvis/document-processing-pipeline/data/input/test.txt",
+    "file_ext": ".txt",
+    "mime_type": "text/plain",
+    "file_size_bytes": 51,
+    "modified_time_utc": "2026-02-23T02:04:00+00:00",
+    "ingested_at_utc": "2026-02-23T02:22:38+00:00",
+    "sha256": "9a33948e3fc854d9d9e95e1d072bcffc298b72e77a8a6926694cb431927c206b"
+  }
+]

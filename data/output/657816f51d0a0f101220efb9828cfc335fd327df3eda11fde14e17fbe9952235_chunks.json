@@ -1,0 +1,22 @@
+{
+  "doc_id": "657816f51d0a0f101220efb9828cfc335fd327df3eda11fde14e17fbe9952235",
+  "filename": "test.txt",
+  "filepath": "/Users/karmenelvis/document-processing-pipeline/data/input/test.txt",
+  "mime_type": "text/plain",
+  "metadata": {
+    "title": "test.txt",
+    "author": null,
+    "created_date": null,
+    "page_count": null
+  },
+  "chunk_size_tokens": 200,
+  "overlap_tokens": 50,
+  "num_chunks": 1,
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "chunk_text": "test document ingestion pipeline",
+      "token_count": 4
+    }
+  ]
+}
